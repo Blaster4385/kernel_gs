@@ -3,13 +3,9 @@ dtb-$(CONFIG_SOC_GS101) += \
 	gs101-b0.dtb
 
 soc-dtbo-$(CONFIG_SOC_GS101) += \
-	gs101-dpm-eng.dtbo \
 	gs101-dpm-user.dtbo \
-	gs101-dpm-userdebug.dtbo \
 
-DTC_FLAGS_gs101-dpm-eng += -a 4096
 DTC_FLAGS_gs101-dpm-user += -a 4096
-DTC_FLAGS_gs101-dpm-userdebug += -a 4096
 
 dtbo-$(CONFIG_BOARD_SLIDER) += \
 	gs101-slider.dtbo \
@@ -50,9 +46,7 @@ gs101-raven-evt1.dtbo-base := gs101-b0.dtb
 gs101-raven-proto1.dtbo-base := gs101-b0.dtb
 gs101-raven-proto1_1.dtbo-base := gs101-b0.dtb
 
-gs101-dpm-eng.dtbo-base := gs101-b0.dtb
 gs101-dpm-user.dtbo-base := gs101-b0.dtb
-gs101-dpm-userdebug.dtbo-base := gs101-b0.dtb
 
 
 dtb-$(CONFIG_SOC_GS201) += \
@@ -60,13 +54,9 @@ dtb-$(CONFIG_SOC_GS201) += \
         gs201-b0.dtb \
 
 soc-dtbo-$(CONFIG_SOC_GS201) += \
-	gs201-dpm-eng.dtbo \
 	gs201-dpm-user.dtbo \
-	gs201-dpm-userdebug.dtbo \
 
-DTC_FLAGS_gs201-dpm-eng += -a 4096
 DTC_FLAGS_gs201-dpm-user += -a 4096
-DTC_FLAGS_gs201-dpm-userdebug += -a 4096
 
 dtbo-$(CONFIG_BOARD_CLOUDRIPPER) += \
         gs201-cloudripper-dev.dtbo \
@@ -127,8 +117,6 @@ gs201-panther-mp.dtbo-base := gs201-a0.dtb
 gs201-emulator.dtbo-base := gs201-a0.dtb
 gs201-hybrid.dtbo-base := gs201-a0.dtb
 
-gs201-dpm-eng.dtbo-base := gs201-a0.dtb
 gs201-dpm-user.dtbo-base := gs201-a0.dtb
-gs201-dpm-userdebug.dtbo-base := gs201-a0.dtb
 
 MKDTIMG_FLAGS += --page_size=4096  --id=/:board_id --rev=/:board_rev
