@@ -36,7 +36,7 @@ else
     GKI_KERNEL_BUILD_CONFIG=aosp-staging/build.config.gki.aarch64
   else
     GKI_KERNEL_OUT_DIR=android13-5.10
-    GKI_KERNEL_BUILD_CONFIG=aosp/build.config.gki.aarch64
+    GKI_KERNEL_BUILD_CONFIG=private/gs-google/build.config.gki.aarch64
   fi
 fi
 
