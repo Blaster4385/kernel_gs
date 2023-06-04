@@ -1263,7 +1263,6 @@ static ssize_t pmu_poll_enable_store(struct file *filp,
 {
 	bool enable;
 	char buf[MAX_PROC_SIZE];
-	int ret = 0;
 
 	if (count >= sizeof(buf))
 		return -EINVAL;
@@ -1277,9 +1276,6 @@ static ssize_t pmu_poll_enable_store(struct file *filp,
 		return -EINVAL;
 
 	pmu_poll_enabled = enable;
-
-	if (ret)
-		return ret;
 
 	return count;
 }

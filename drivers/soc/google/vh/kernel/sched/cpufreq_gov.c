@@ -93,36 +93,6 @@ extern int get_ev_data(int cpu, int inst_ev, int cyc_ev, int stall_ev, int cache
 			unsigned long *stall, unsigned long *cachemiss);
 
 /************************ Governor internals ***********************/
-static bool check_sg_policy_initialized(void)
-{
-	unsigned int cpu = 0;
-	struct cpufreq_policy *policy = NULL;
-	struct sugov_policy *sg_policy = NULL;
-
-	if (cpumask_weight(&pixel_sched_governor_mask) != CPU_NUM)
-		return false;
-
-	while (cpu < CPU_NUM) {
-		policy = cpufreq_cpu_get(cpu);
-		if (!policy) {
-			pr_err("no cpufreq policy for cpu %d\n", cpu);
-			cpufreq_cpu_put(policy);
-			return false;
-		}
-
-		sg_policy = policy->governor_data;
-		if (!sg_policy) {
-			pr_err("no sugov policy for cpu %d\n", cpu);
-			cpufreq_cpu_put(policy);
-			return false;
-		}
-
-		cpu = cpumask_last(policy->related_cpus) + 1;
-		cpufreq_cpu_put(policy);
-	}
-
-	return true;
-}
 
 #if IS_ENABLED(CONFIG_UCLAMP_STATS)
 void update_uclamp_stats(int cpu, u64 time)
